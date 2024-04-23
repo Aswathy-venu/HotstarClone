@@ -1,9 +1,9 @@
-html {
+ html {
   scroll-behavior: smooth;
 }
 * {
   box-sizing: border-box;
-}
+ }
 body {
   background-color: #040714;
   color: #f9f9f9;
@@ -19,7 +19,7 @@ a{
   body{
     font-size: 16px;
   }
-};
+}; 
 @media only screen and (min-width: 480px)and (max-width:768px){
 body{
   font-size: 15px;
@@ -29,6 +29,6 @@ body{
   body{
     font-size: 14px;
   }
-};
+};  
 
   
