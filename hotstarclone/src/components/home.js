@@ -1,10 +1,17 @@
 import styled from "styled-components";
 import bgVideo from "../media/video1.mp4";
-
+import avantar from "../media/avantar.webp";
 const Login = (props) => {
   return (
     <Container>
         <Content>
+        <Image>
+             <img src={avantar} alt="avantar" />
+             <span>Former Marine Jake Sully is deployed as an Avantar on a mission
+                   to Pandora but,he ultimately finds himself torn between two
+                   worlds</span>
+            <button>&#9654;&nbsp;&nbsp;Subscribe To Watch</button>
+             </Image>
             <Video>
              <video src={bgVideo} autoPlay loop muted>
              </video>
@@ -24,6 +31,32 @@ const Container = styled.section`
     
 
     
+`;
+const Image = styled.div `
+    
+
+    margin-right:500px;
+    margin-bottom: 200px;
+    img{
+        width:400px;
+    }
+    span{
+        display:flex;
+    }
+    button{
+        
+  padding: 11px 90px;
+  font-size: 19px;
+  font-weight: bold;
+  color:rgb(252, 246, 246);
+  background-color: rgba(250, 247, 251, 0.2);
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 80px;
+  margin-top: 25px;
+    }
 `;
 
 const Content = styled.div`
@@ -52,7 +85,7 @@ const Video =styled.div`
     
     video{
         width:100%; 
-        
+        filter : brightness(0.4);
     }
     `;
 

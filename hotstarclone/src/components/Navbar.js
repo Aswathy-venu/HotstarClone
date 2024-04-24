@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import styled from "styled-components";
 import logo from '../media/logo.webp';
 import account from '../media/account.svg';
@@ -9,17 +10,14 @@ import sports from '../media/sports.svg';
 import category from '../media/category.svg';
 
 const Navbar = (props) => {
+    const [isContentVisible, setIsContentVisible] = useState(false);
     return(
-    <Nav>
+        <Nav >
         <Logo>
             <img src={logo} alt="Disney+" />
-            <button type="button">Subscribe</button>
+            <button type="button">Subscribe &gt;</button>
         </Logo>
-        
-        
-       
-    
-        <NavMenu>
+        <NavMenu onMouseEnter={() => setIsContentVisible(true)} onMouseLeave={() => setIsContentVisible(false)}Q>
             <img src={account} alt="account"></img>
             <img src={search} alt="search"></img>
             <img src={home} alt="home"></img> 
@@ -28,7 +26,7 @@ const Navbar = (props) => {
             <img src={sports} alt="sports"></img>
             <img src={category} alt="category"></img>
         </NavMenu>
-        <Content>
+        <Content visible={isContentVisible}>
             <span>My Space</span>
             <span>Search</span>
             <span>Home</span>
@@ -40,7 +38,18 @@ const Navbar = (props) => {
     </Nav>
     );
 };
-
+const Content = styled.div`
+    margin-top:-458px; 
+    margin-left:85px;
+    width: 150px;
+    span{
+        display: flex;
+        flex-direction:column;
+        padding-top:40px;
+        margin-right:40px;  
+        visibility: ${props => props.visible ? 'visible' : 'hidden'};
+    }
+    `;
 const Nav = styled.nav`
     width: 7rem;
     height:100%;
@@ -81,25 +90,7 @@ const NavMenu = styled.div`
         width:65px;
         padding-bottom:40px;
         padding-left:45px;
-        cursor: pointer;
-    }
-    &:hover + ${Content} {
-        visibility: visible; 
-}
+        cursor: pointer;    
+    } 
 `;
-
-const Content = styled.div`
-    margin-top:-455px; 
-    margin-left:120px;
-    width: 150px;
-    span{
-        display: flex;
-        flex-direction:column;
-        padding-top:40px;
-        margin-right:40px;  
-        visibility: hidden;
-    }
-    `;
-
-
 export default Navbar;
