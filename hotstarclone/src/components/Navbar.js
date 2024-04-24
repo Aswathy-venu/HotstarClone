@@ -21,13 +21,22 @@ const Navbar = (props) => {
     
         <NavMenu>
             <img src={account} alt="account"></img>
-            <img src={search} ait="search"></img>
-            <img src={home} ait="home"></img> 
-            <img src={tv} ait="tv"></img>
-            <img src={movie} ait="movie"></img>
-            <img src={sports} ait="sports"></img>
-            <img src={category} ait="category"></img>
+            <img src={search} alt="search"></img>
+            <img src={home} alt="home"></img> 
+            <img src={tv} alt="tv"></img>
+            <img src={movie} alt="movie"></img>
+            <img src={sports} alt="sports"></img>
+            <img src={category} alt="category"></img>
         </NavMenu>
+        <Content>
+            <span>My Space</span>
+            <span>Search</span>
+            <span>Home</span>
+            <span>TV</span>
+            <span>Movies</span>
+            <span>Sports</span>
+            <span>Categories</span>
+        </Content>
     </Nav>
     );
 };
@@ -35,14 +44,12 @@ const Navbar = (props) => {
 const Nav = styled.nav`
     width: 7rem;
     height:100%;
-    /* background-color: #020205; */
+    background-color:black;
     position: fixed;
     align-items: center;
     z-index:3; 
     box-shadow:100px 800px -800px 800px red;
-   
-
- `;
+`;
 
 const Logo = styled.div`
     margin-top:28px;
@@ -67,15 +74,32 @@ const Logo = styled.div`
 
 
 const NavMenu = styled.div`
-
     margin-top:50px;
     display:flex;
     flex-direction:column;
-
     img{
         width:65px;
         padding-bottom:40px;
         padding-left:45px;
+        cursor: pointer;
     }
+    &:hover + ${Content} {
+        visibility: visible; 
+}
 `;
+
+const Content = styled.div`
+    margin-top:-455px; 
+    margin-left:120px;
+    width: 150px;
+    span{
+        display: flex;
+        flex-direction:column;
+        padding-top:40px;
+        margin-right:40px;  
+        visibility: hidden;
+    }
+    `;
+
+
 export default Navbar;
