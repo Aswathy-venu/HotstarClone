@@ -9,6 +9,7 @@ import movie from '../media/movie.svg';
 import sports from '../media/sports.svg';
 import category from '../media/category.svg';
 
+
 const Navbar = (props) => {
     const [isContentVisible, setIsContentVisible] = useState(false);
     return(
