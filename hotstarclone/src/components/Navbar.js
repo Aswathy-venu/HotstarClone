@@ -18,7 +18,7 @@ const Navbar = (props) => {
             <img src={logo} alt="Disney+" />
             <button type="button">Subscribe &gt;</button>
         </Logo>
-        <NavMenu onMouseEnter={() => setIsContentVisible(true)} onMouseLeave={() => setIsContentVisible(false)}Q>
+        <NavMenu onMouseEnter={() => setIsContentVisible(true)} onMouseLeave={() => setIsContentVisible(false)}>
             <img src={account} alt="account"></img>
             <img src={search} alt="search"></img>
             <img src={home} alt="home"></img> 
@@ -39,22 +39,25 @@ const Navbar = (props) => {
     </Nav>
     );
 };
+
+
 const Content = styled.div`
-    margin-top:-458px; 
-    margin-left:85px;
+    margin-top:-441px; 
+    margin-left:90px;
     width: 150px;
+    display: flex;
+    flex-direction:column;
     span{
-        display: flex;
-        flex-direction:column;
-        padding-top:40px;
-        margin-right:40px;  
+        font-size:20px;
+        padding-bottom:40px; 
         visibility: ${props => props.visible ? 'visible' : 'hidden'};
-    }
+    } 
     `;
+
 const Nav = styled.nav`
     width: 7rem;
     height:100%;
-    background-color:black;
+    /* background-color:black; */
     position: fixed;
     align-items: center;
     z-index:3; 
@@ -68,7 +71,6 @@ const Logo = styled.div`
         display:block;
         width:55px;
         margin-left:-10px;   
-
     }   
     button{
         margin-top:10px;
@@ -78,20 +80,23 @@ const Logo = styled.div`
         color: #F4BB44;
         width:85px; 
         height:25px;
-        background-color:#282722;
+        background-color:#282722; 
     }
 `;
-
 
 const NavMenu = styled.div`
     margin-top:50px;
     display:flex;
     flex-direction:column;
+    &:hover,
+    &.active {
+        width: 200px;
+    }
     img{
-        width:65px;
+        width:68px;
         padding-bottom:40px;
-        padding-left:45px;
-        cursor: pointer;    
+        padding-left:45px;  
     } 
 `;
+
 export default Navbar;
