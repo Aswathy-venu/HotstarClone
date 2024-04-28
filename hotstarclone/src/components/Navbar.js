@@ -9,94 +9,107 @@ import movie from '../media/movie.svg';
 import sports from '../media/sports.svg';
 import category from '../media/category.svg';
 
-
 const Navbar = (props) => {
     const [isContentVisible, setIsContentVisible] = useState(false);
-    return(
-        <Nav >
-        <Logo>
-            <img src={logo} alt="Disney+" />
-            <button type="button">Subscribe &gt;</button>
-        </Logo>
-        <NavMenu onMouseEnter={() => setIsContentVisible(true)} onMouseLeave={() => setIsContentVisible(false)}>
-            <img src={account} alt="account"></img>
-            <img src={search} alt="search"></img>
-            <img src={home} alt="home"></img> 
-            <img src={tv} alt="tv"></img>
-            <img src={movie} alt="movie"></img>
-            <img src={sports} alt="sports"></img>
-            <img src={category} alt="category"></img>
-        </NavMenu>
-        <Content visible={isContentVisible}>
-            <span>My Space</span>
-            <span>Search</span>
-            <span>Home</span>
-            <span>TV</span>
-            <span>Movies</span>
-            <span>Sports</span>
-            <span>Categories</span>
-        </Content>
-    </Nav>
+
+    return (
+        <Nav>
+            <Logo>
+                <img src={logo} alt="Disney+" />
+                <button type="button">Subscribe &gt;</button>
+            </Logo>
+            <NavMenu onMouseEnter={() => setIsContentVisible(true)} onMouseLeave={() => setIsContentVisible(false)}>
+                <NavItem>
+                    <img src={account} alt="account" />
+                    <span  style={{ left: isContentVisible ? '0' : '-30%', visibility: isContentVisible ? 'visible' : 'hidden' }}>My Space</span>
+                </NavItem>
+                <NavItem>
+                    <img src={search} alt="search" />
+                    <span style={{ left: isContentVisible ? '0' : '-30%', visibility: isContentVisible ? 'visible' : 'hidden' }}>Search</span>
+                </NavItem>
+                <NavItem>
+                    <img className='home' src={home} alt="home" />
+                    <span className='home' style={{ left: isContentVisible ? '0' : '-30%', visibility: isContentVisible ? 'visible' : 'hidden' }}>Home</span>
+                </NavItem>
+                <NavItem>
+                    <img src={tv} alt="tv" />
+                    <span style={{ left: isContentVisible ? '0' : '-30%', visibility: isContentVisible ? 'visible' : 'hidden' }}>TV</span>
+                </NavItem>
+                <NavItem>
+                    <img src={movie} alt="movie" />
+                    <span style={{ left: isContentVisible ? '0' : '-30%', visibility: isContentVisible ? 'visible' : 'hidden' }}>Movies</span>
+                </NavItem>
+                <NavItem>
+                    <img src={sports} alt="sports" />
+                    <span style={{ left: isContentVisible ? '0' : '-30%', visibility: isContentVisible ? 'visible' : 'hidden' }}>Sports</span>
+                </NavItem>
+                <NavItem>
+                    <img src={category} alt="category" />
+                    <span style={{ left: isContentVisible ? '0' : '-30%', visibility: isContentVisible ? 'visible' : 'hidden' }}>Categories</span>
+                </NavItem>
+            </NavMenu>
+        </Nav>
     );
 };
 
-
-const Content = styled.div`
-    margin-top:-441px; 
-    margin-left:90px;
-    width: 150px;
-    display: flex;
-    flex-direction:column;
-    span{
-        font-size:20px;
-        padding-bottom:40px; 
-        visibility: ${props => props.visible ? 'visible' : 'hidden'};
-    } 
-    `;
-
 const Nav = styled.nav`
     width: 7rem;
-    height:100%;
-    /* background-color:black; */
+    height: 100%;
     position: fixed;
     align-items: center;
-    z-index:3; 
-    box-shadow:100px 800px -800px 800px red;
+    z-index: 3;
 `;
 
 const Logo = styled.div`
-    margin-top:28px;
-    margin-left:30px;
-    img{
-        display:block;
-        width:55px;
-        margin-left:-10px;   
-    }   
-    button{
-        margin-top:10px;
-        margin-left:-20px;
-        border-radius: 20px; 
-        border:0px;
+    margin-top: 28px;
+    margin-left: 30px;
+    img {
+        display: block;
+        width: 55px;
+        margin-left: -10px;
+    }
+    button {
+        margin-top: 10px;
+        margin-left: -20px;
+        border-radius: 20px;
+        border: 0px;
         color: #F4BB44;
-        width:85px; 
-        height:25px;
-        background-color:#282722; 
+        width: 85px;
+        height: 25px;
+        background-color: #282722;
     }
 `;
 
 const NavMenu = styled.div`
-    margin-top:50px;
-    display:flex;
-    flex-direction:column;
-    &:hover,
-    &.active {
-        width: 200px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s;
+`;
+
+const NavItem = styled.div`
+    width: 68px;
+    position: relative;
+    &:hover {
+        transform: scale(1.2);
     }
-    img{
-        width:68px;
-        padding-bottom:40px;
-        padding-left:45px;  
-    } 
+    img {
+        width: 52px;
+        padding-bottom: 30px;
+        padding-left: 30px;
+        transition: transform 0.1s ease;  
+    }
+    span { 
+        position: absolute;  
+        width: 90px;
+        margin-top: -55px;
+        margin-left: 75px;
+        display: flex;
+        font-size: 18px;
+        padding-bottom: 40px;
+        transition: left 0.5s ease;
+        color:grey;
+    }  
 `;
 
 export default Navbar;
