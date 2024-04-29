@@ -128,7 +128,10 @@ const Image = styled.div`
         margin-left: -25%;
         padding-top: 10px;
         padding-bottom: 10px;
-        transition: background-color 0.3s, transform 0.3s;   
+        &:hover {
+            transform: scale(1.02);
+        }
+           
     }
     
     button.plusbutton{ 
@@ -182,7 +185,6 @@ const Gradient = styled.div`
 `;
 
 const Video =styled.div`
-    /* height :100%; */
     background-position:top;
     background-size : cover;
     position: fixed;
