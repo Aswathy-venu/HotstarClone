@@ -1,14 +1,15 @@
 import React from "react";
-import { useEffect, useState } from 'react';
+import { useEffect, useState,useRef } from 'react';
 import styled from "styled-components";
 
-export default function Movielist() {
-  const [imageUrls, setImageUrls] = useState([]);
+const Movielist = (props) => {
+const [imageUrls, setImageUrls] = useState([]);
+const carouselRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const resp = await fetch('https://api.sampleapis.com/movies/animation');
+        const resp = await fetch('https://api.sampleapis.com/movies/family');
         const data = await resp.json();
         const urls = data.map(movie => movie.posterURL);
         setImageUrls(urls);
@@ -18,60 +19,78 @@ export default function Movielist() {
     };
     fetchData();
   }, []);
+
+  const scroll = (scrollOffset) => {
+    carouselRef.current.scrollLeft += scrollOffset;
+  };
 return (
+{/* <>
+  <Heading>
+        <span>Latest Releases</span>
+      </Heading>
+      </> */}
   <ImageCard>
+       
     <CardContainer>
-      {imageUrls.slice(0, 8).map((imageUrl, index) => ( 
+      {imageUrls.slice(0, 9).map((imageUrl, index) => ( 
         <Card key={index}>
-          <img src={imageUrl} alt={`Image ${index + 1}`} className="image" />
+          <img src={imageUrl} alt={`Image ${index + 1}`}  />
         </Card>
       ))}
-    </CardContainer> 
+    <Button>
+    <ScrollButton direction="left" onClick={() => scroll(-1000)}>{"<"}</ScrollButton>
+      <ScrollButton direction="right" onClick={() => scroll(1000)}>{">"}</ScrollButton>
     
+    </Button>
+    </CardContainer> 
   </ImageCard>
- 
+  
+  
 );
-}
-
+};
+const Button = styled.div`
+  display: flex;
+  overflow-x: hidden;
+  margin-top: 8px; /* Adjust as needed */
+`;
+const ScrollButton = styled.button`
+  position: absolute;
+  background: linear-gradient(to right, black, transparent);
+  color: white;
+  font-weight: bold;
+  padding: 6px 12px; /* Adjust padding as needed */
+  border: none;
+  top: 50%;
+  transform: translateY(-50%);
+  ${({ direction }) => (direction === 'left' ? 'left: 36px;' : 'right: 0;')}
+`;
+ 
 const Card = styled.div`
    
     
     img{
-      width: 160px; 
-      height: 220px; 
+      width: 150px; 
+      height: 210px; 
       margin: 4px;
-      /* background-color: black; */
     }
   `;
 const ImageCard = styled.div`
-  position: absolute; /* or 'fixed' if you want it to be fixed relative to the viewport */
-  top: 570px; /* Adjust the top position as needed */
-  left: 8%; /* Adjust the left position as needed */
-  /* background-color: black; */
+  position: absolute;
+  top: 560px;
+  left: 8%;
+  width: 84%; 
+  overflow: hidden;
   `;
 const CardContainer = styled.div`
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
   `;
-// import {useEffect, useState} from 'react';
+const Heading = styled.div`
 
-// export default function App() {
-//   const [data, setData] = useState("");
-//   const getData = async () => {
-//     const resp = await fetch('https://api.sampleapis.com/movies/animation');
-//     const json = await resp.json();
-//     setData(json);
-//   }
+  span{
+  font-size: 20px;;
+  margin-top:-20px;
+  margin-left:3px;
+}
+`;
 
-//   useEffect(() => {
-//     getData();
-//   }, []);
-
-//   return (
-//     <pre>
-//       {JSON.stringify(data, null, 2)}
-//     </pre>
-//   )
-// }
-
+export default Movielist;

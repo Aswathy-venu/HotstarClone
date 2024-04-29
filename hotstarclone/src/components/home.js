@@ -26,15 +26,16 @@ const Home = (props) => {
                     <video src={bgVideo} autoPlay loop muted>
                     </video>
                 </Video>
+                
             </Content>
-            <FilmCards />
+            <FilmCards/>
         </Container>
     );
 };
 
 
 const Container = styled.section`
-    overflow: hidden;
+    /* overflow: hidden; */
     display: flex;
     flex-direction: column;
     text-align: center;  
@@ -46,20 +47,20 @@ const Image = styled.div`
 
     img.avatar{
         width:50%; 
-        margin-right:38%;
+        margin-right:32%;
         margin-top:4%;   
     }
 
     img.release{
         width:13%;
         margin-top:1%;
-        margin-right: 74%;  
+        margin-right: 69%;  
     }
 
     p{
         position: relative;
-        top:-8%;
-        margin-left: -4%;
+        top:-6%;
+        margin-left: 3%;
         right:100px;
         font-weight: bold;
         color:RGB(179, 179, 179);
@@ -67,7 +68,7 @@ const Image = styled.div`
             color: white;
         }
         span{
-            margin-left:1px;
+            margin-left:3px;
             font-size:3px;
             color:RGB(179, 179, 179);
         }
@@ -86,8 +87,7 @@ const Image = styled.div`
    
     h4{
         position: relative;
-        top: -6%;
-        left:-19%;
+        left:-16%;
         right:100px;
         color:RGB(179, 179, 179);
         &:hover {
@@ -104,10 +104,10 @@ const Image = styled.div`
     a{
         display:flex;
         font-size:15px;
-        margin-top:-6%; 
+        margin-top:-4%; 
         line-height: 23px;
         text-align: left;
-        margin-left:6%;
+        margin-left:9%;
         color:RGB(179, 179, 179);
         padding-bottom:20px;
         &:hover {
@@ -125,14 +125,14 @@ const Image = styled.div`
         border-radius: 9px;
         margin-right: 80px;
         margin-bottom: 10%; 
-        margin-left: -32%;
+        margin-left: -25%;
         padding-top: 10px;
         padding-bottom: 10px;
         transition: background-color 0.3s, transform 0.3s;   
     }
     
     button.plusbutton{ 
-        padding: 5px 15px;
+        padding: 4px 15px;
         font-size: 30px;
         color:rgb(252, 246, 246);
         background-color: rgba(250, 247, 251, 0.2);
@@ -157,7 +157,8 @@ const Content = styled.div`
     align-items: center ;
     flex-direction: column;
     padding: 80px 40px;
-    height: 100%; 
+    height: 100%;
+
 `;
 
 const GradientOverlay = styled.div`
@@ -181,10 +182,10 @@ const Gradient = styled.div`
 `;
 
 const Video =styled.div`
-    height :100%;
+    /* height :100%; */
     background-position:top;
     background-size : cover;
-    position: absolute;
+    position: fixed;
     top:0;
     right:0;
     left:0;

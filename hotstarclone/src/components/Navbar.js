@@ -84,7 +84,7 @@ const NavMenu = styled.div`
     margin-top: 50px;
     display: flex;
     flex-direction: column;
-    transition: 0.5s;
+    
 `;
 
 const NavItem = styled.div`
@@ -103,7 +103,7 @@ const NavItem = styled.div`
         position: absolute;  
         width: 90px;
         margin-top: -55px;
-        margin-left: 75px;
+        margin-left: 70px;
         display: flex;
         font-size: 18px;
         padding-bottom: 40px;
