@@ -28,8 +28,8 @@ const Navbar = (props) => {
                     <span style={{ left: isContentVisible ? '0' : '-30%', visibility: isContentVisible ? 'visible' : 'hidden' }}>Search</span>
                 </NavItem>
                 <NavItem>
-                    <img  src={home} alt="home" />
-                    <span  style={{ color:'white', left: isContentVisible ? '0' : '-30%', visibility: isContentVisible ? 'visible' : 'hidden' }}>Home</span>
+                    <img className='home' src={home} alt="home" />
+                    <span className='home' style={{left: isContentVisible ? '0' : '-30%', visibility: isContentVisible ? 'visible' : 'hidden' }}>Home</span>
                 </NavItem>
                 <NavItem>
                     <img src={tv} alt="tv" />
@@ -59,10 +59,17 @@ const Nav = styled.nav`
     align-items: center;
     z-index: 3;
     &:hover { 
-        background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 100%);
-        }
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0)); 
+        z-index: 1;
+        position:fixed;
+    }
 `;
-
+    
 
 const Logo = styled.div`
     margin-top: 28px;
@@ -94,6 +101,14 @@ const NavMenu = styled.div`
 const NavItem = styled.div`
     width: 68px;
     position: relative;
+
+    .home{
+        color: white;
+        /* text-shadow: 0 0 5px white,
+                     0 0 25px white,
+                     0 0 50px white,
+                     0 0 200px white; */
+    }
     &:hover {
         transform: scale(1.2);
         img {
@@ -109,7 +124,6 @@ const NavItem = styled.div`
         padding-bottom: 30px;
         padding-left: 30px;
         transition: transform 0.1s ease;  
-       
     }
     span { 
         position: absolute;  
@@ -120,8 +134,7 @@ const NavItem = styled.div`
         font-size: 18px;
         padding-bottom: 40px;
         transition: left 0.5s ease;
-        color:grey;
-        
+        color:grey;   
     }
 `;
 

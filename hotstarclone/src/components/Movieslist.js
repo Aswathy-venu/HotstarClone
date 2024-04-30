@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 const Movielist = (props) => {
 const [imageUrls, setImageUrls] = useState([]);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -18,17 +17,10 @@ const [imageUrls, setImageUrls] = useState([]);
     };
     fetchData();
   }, []);
-
-  
 return (
- 
-  
   <ImageCard>
-   <Div>
-    <span>Nerwhvsmxnk</span>
-    </Div>
+    <LatestReleaseText>Latest Releases</LatestReleaseText>
     <CardContainer>
-    
       {imageUrls.slice(0, 9).map((imageUrl, index) => ( 
         <Card key={index}>
           <img src={imageUrl} alt={`Image ${index + 1}`}  />
@@ -38,17 +30,27 @@ return (
     <ScrollButton direction="left" onClick={() => scroll(-1000)}>{"<"}</ScrollButton>
     <ScrollButton direction="right" onClick={() => scroll(1000)}>{">"}</ScrollButton>
     </Button> */}
-     
     </CardContainer> 
-   
-  </ImageCard>
-
-  
-  
+  </ImageCard> 
 );
 };
 
- 
+const LatestReleaseText = styled.h2`
+  text-align: left;
+  margin-bottom: 5px;
+  font-size: 20px;;
+`;
+
+const ImageCard = styled.div`
+  position: absolute;
+  top: 550px;
+  left: 8%;
+  width: 84%; 
+  overflow: hidden;
+  `;
+const CardContainer = styled.div`
+display: flex; 
+`;
 const Card = styled.div`
     img{
       width: 150px; 
@@ -56,25 +58,6 @@ const Card = styled.div`
       margin: 4px;
     }
   `;
-const ImageCard = styled.div`
-  position: absolute;
-  top: 570px;
-  left: 8%;
-  width: 84%; 
-  overflow: hidden;
-  `;
-const CardContainer = styled.div`
-    display: flex; 
-  `;
-const Div = styled.div`
-  span{
-    color: white;
-    position: absolute; 
-    left: 1px;
-    top:px;
-    font-weight: bolder;
-    font-size: 20px;
-}
-`;
 
 export default Movielist;
+
