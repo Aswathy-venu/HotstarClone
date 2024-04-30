@@ -1,9 +1,22 @@
-import React from "react";
-import { useEffect, useState} from 'react';
-import styled from "styled-components";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import Slider from 'react-slick'; 
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const Movielist = (props) => {
-const [imageUrls, setImageUrls] = useState([]);
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 7,
+    slidesToScroll: 6,
+    variableWidth: true,
+    
+  };
+
+  const [imageUrls, setImageUrls] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -17,47 +30,49 @@ const [imageUrls, setImageUrls] = useState([]);
     };
     fetchData();
   }, []);
-return (
-  <ImageCard>
-    <LatestReleaseText>Latest Releases</LatestReleaseText>
-    <CardContainer>
-      {imageUrls.slice(0, 9).map((imageUrl, index) => ( 
-        <Card key={index}>
-          <img src={imageUrl} alt={`Image ${index + 1}`}  />
-        </Card>
-      ))}
-    {/* <Button>
-    <ScrollButton direction="left" onClick={() => scroll(-1000)}>{"<"}</ScrollButton>
-    <ScrollButton direction="right" onClick={() => scroll(1000)}>{">"}</ScrollButton>
-    </Button> */}
-    </CardContainer> 
-  </ImageCard> 
-);
+
+  return (
+    <ImageCard>
+      <LatestReleaseText>Latest Releases</LatestReleaseText>
+      <MySlider {...settings}>
+        {imageUrls.slice(0, 12).map((imageUrl, index) => ( 
+          <Card key={index}>
+            <img src={imageUrl} alt={`Image ${index + 1}`} />
+          </Card>
+        ))}
+      </MySlider>
+    </ImageCard> 
+  );
 };
 
+const MySlider = styled(Slider)`
+  position: relative;
+  
+`;
 const LatestReleaseText = styled.h2`
   text-align: left;
   margin-bottom: 5px;
-  font-size: 20px;;
+  font-size: 20px;
+ 
 `;
 
 const ImageCard = styled.div`
-  position: absolute;
-  top: 550px;
-  left: 8%;
-  width: 84%; 
-  overflow: hidden;
-  `;
-const CardContainer = styled.div`
-display: flex; 
+  position: relative;
+  top: -100px;
+  left: 10%;
+  overflow:hidden; 
+  width: 90%;
+  overflow-x: hidden;
+  
 `;
+
 const Card = styled.div`
-    img{
-      width: 150px; 
-      height: 210px; 
-      margin: 4px;
-    }
-  `;
+  img {
+    width: 150px; 
+    height: 210px; 
+    margin: 4px;
+  
+  }
+`;
 
 export default Movielist;
-
