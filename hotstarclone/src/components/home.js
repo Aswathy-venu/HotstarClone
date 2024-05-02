@@ -2,11 +2,15 @@ import styled from "styled-components";
 import bgVideo from "../media/video1.mp4";
 import avatar from "../media/avatar.webp";
 import FilmCards from "./Movieslist.js";
+import PopularMovieCards from "./PopularMovie.js" 
+import HitMovieCards from "./HitCards.js"
 import release from '../media/New_Release.webp';
 
 
 const Home = (props) => {
     return(
+        <>
+        <Length>
         <Container>
             <Content>
                 <Image>
@@ -29,16 +33,39 @@ const Home = (props) => {
                 
             </Content>
             <FilmCards/>
+            <PopularMovieCards/>
+            <HitMovieCards />
+            
         </Container>
+       <Fade />
+       <FadeBottom />
+       </Length>
+       </>
+ 
     );
 };
 
-
+const FadeBottom = styled.div`
+    height:47.4rem;
+    background-image:linear-gradient(rgb(19,18,18),rgb(0,0,0));
+    position: relative;
+    bottom:85px;
+`;
+const Fade = styled.div`
+    height: 7.4rem;
+    background-image: linear-gradient(180deg,transparent,rgba(37,37,37,.61),#111);
+    position: relative;
+    bottom: 85px;
+`;
+const Length = styled.div`
+    height:1000px;
+`;
 const Container = styled.section`
     display: flex;
     flex-direction: column;
     text-align: center;  
-    height: 100vh;    
+    height: 100vh;   
+  
 `;
 
 const Image = styled.div`
@@ -149,17 +176,17 @@ const Image = styled.div`
 `;
 
 const Content = styled.div`
-    margin-bottom: 10vw;
+    /* margin-bottom: 10vw; */ 
     width: 100%;
     position: relative;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center ;
     flex-direction: column;
     padding: 80px 40px;
-    height: 100%;
+    /* height: 100%; */
 
 `;
 
