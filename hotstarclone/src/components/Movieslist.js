@@ -1,140 +1,123 @@
-import React, { useEffect, useState,useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Slider from 'react-slick'; 
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
 const Movielist = (props) => {
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 5,
-    variableWidth: true, 
-  };
-
-  const [imageUrls, setImageUrls] = useState([]);
-  const sliderRef = useRef();
+  const [movies, setMovies] = useState([]);
+  const [scrollPosition, setScrollPosition] = useState(0);
   useEffect(() => {
     const fetchData = async () => {
       try {
         const resp = await fetch('https://api.sampleapis.com/movies/family');
         const data = await resp.json();
-        const urls = data.map(movie => movie.posterURL);
-        setImageUrls(urls);
+        setMovies(data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
     fetchData();
   }, []);
-
-  const handleLeftButtonClick = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickPrev();
-    }
+  const handleLeftScroll = () => {
+    setScrollPosition((prevPosition) => Math.max(0, prevPosition - 8));
   };
-
-  const handleRightButtonClick = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickNext();
-    }
+ 
+  const handleRightScroll = () => {
+    setScrollPosition((prevPosition) =>
+      Math.min(prevPosition + 6, movies.length - 6)
+    );
   };
-
   return (
     <ImageCard>
       <LatestReleaseText>Latest Releases</LatestReleaseText>
-      <ButtonContainer>
-        <button  className="left" onClick={handleLeftButtonClick}>{"<"}</button>
-        <button className="right" onClick={handleRightButtonClick}>{">"}</button>
-      </ButtonContainer>
-      <MySlider {...settings} ref={sliderRef}>
-        {imageUrls.slice(0, 12).map((imageUrl, index) => ( 
+      <MovieContainer>
+        
+        <Arrowbutton onClick={handleLeftScroll}>{"<"}</Arrowbutton>
+        {movies.slice(scrollPosition,scrollPosition+6).map((movie, index) => ( 
           <Card key={index}>
-            <img src={imageUrl} alt={`Image ${index + 1}`} />
-            {hoveredIndex === index + scrollPosition && (
-        <Overlay>
-          <button className="subscribe">&#9654;&nbsp;&nbsp;Subscribe To Watch</button>
-          <button className="plusbutton">&#43;</button> 
-          <h4>Science Fiction <span>&#124;</span> Action <span>&#124;</span> Adventure <span>&#124;</span> Fantasy </h4>
-          <a href="/">Set more than a decade after the first film, dive into the story of<br></br>
-                        the Sully family0; the lengths they go to keep each other safe<br></br>
-                        and the tragedies they endure.</a>        
-        </Overlay>
-      )}
+            <img src={movie.posterURL} alt={`Movie ${index + 1}`} />
+            <Description>
+              <Title>{movie.title}</Title>
+              <Button>Watch Now</Button>
+            </Description>
           </Card>
-       
+        ))}     
+           <Arrowbutton  onClick={handleRightScroll}>{">"}</Arrowbutton >
 
-        ))}
-      </MySlider>
-     
+      </MovieContainer>
     </ImageCard> 
   );
-  
- 
 };
-
-
-
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  top: 50%;
-  z-index: 1000; 
-  button.left {
-    transform: translateY(-50%); 
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    outline: none;
-  }
-  button.right {
-    transform: translateY(-50%); 
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    outline: none;
-    margin-left:1100px;
-  }
-`;
-
-const MySlider = styled(Slider)`
-  position: relative;
-`;
 
 const LatestReleaseText = styled.h2`
   text-align: left;
   margin-bottom: 5px;
   font-size: 20px;
- 
 `;
+const Arrowbutton  = styled.div`
 
+`;
 const ImageCard = styled.div`
   position: relative;
   top: -430px;
   left: 10%;
-  overflow:hidden; 
-  width: 90%;
-  overflow-x: hidden;
+   overflow: hidden; 
+`;
+
+const MovieContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 const Card = styled.div`
-  img {
-    width: 150px; 
-    height: 210px; 
-    margin: 4px;
-    transition: 1s;
-  }
+  position: relative;
+  width: 150px;
+  height: 210px;
+  margin: 4px;
+  transition: transform 0.3s ease-in-out;
   &:hover {
-          transform:scale(1.3);
-          z-index:7889;
-           }
+    transform: scale(1.5);
+    z-index: 1;
+    img{
+    height  : 72%;
+    }
+  }
+  img {
+    width: 100%; 
+    height: 100%;
+  }
+`;
+
+const Description = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: black;
+  padding: 10px;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  ${Card}:hover & {
+    opacity: 1;
+  }
+`;
+
+const Title = styled.h3`
+  margin: 0;
+  color: #fff;
+  font-size: 14px;
+`;
+
+const Button = styled.button`
+  background-color: #ff5722;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  &:hover {
+    background-color: #e64a19;
+  }
 `;
 
 export default Movielist;
+

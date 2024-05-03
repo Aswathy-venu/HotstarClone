@@ -46,7 +46,7 @@ const Home = (props) => {
 };
 
 const FadeBottom = styled.div`
-    height:47.4rem;
+    height:87.4rem;
     background-image:linear-gradient(rgb(19,18,18),rgb(0,0,0));
     position: relative;
     bottom:85px;
