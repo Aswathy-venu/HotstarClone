@@ -16,22 +16,14 @@ const Movielist = (props) => {
     };
     fetchData();
   }, []);
-  const handleLeftScroll = () => {
-    setScrollPosition((prevPosition) => Math.max(0, prevPosition - 8));
-  };
  
-  const handleRightScroll = () => {
-    setScrollPosition((prevPosition) =>
-      Math.min(prevPosition + 6, movies.length - 6)
-    );
-  };
   return (
     <ImageCard>
       <LatestReleaseText>Latest Releases</LatestReleaseText>
       <MovieContainer>
         
-        <Arrowbutton onClick={handleLeftScroll}>{"<"}</Arrowbutton>
-        {movies.slice(scrollPosition,scrollPosition+6).map((movie, index) => ( 
+       
+        {movies.slice(0,12).map((movie, index) => ( 
           <Card key={index}>
             <img src={movie.posterURL} alt={`Movie ${index + 1}`} />
             <Description>
@@ -40,8 +32,7 @@ const Movielist = (props) => {
             </Description>
           </Card>
         ))}     
-           <Arrowbutton  onClick={handleRightScroll}>{">"}</Arrowbutton >
-
+         
       </MovieContainer>
     </ImageCard> 
   );
@@ -52,9 +43,7 @@ const LatestReleaseText = styled.h2`
   margin-bottom: 5px;
   font-size: 20px;
 `;
-const Arrowbutton  = styled.div`
 
-`;
 const ImageCard = styled.div`
   position: relative;
   top: -430px;
