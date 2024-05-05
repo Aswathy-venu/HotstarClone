@@ -2,8 +2,6 @@ import styled from "styled-components";
 import bgVideo from "../media/video1.mp4";
 import avatar from "../media/avatar.webp";
 import FilmCards from "./Movieslist.js";
-import PopularMovieCards from "./PopularMovie.js" 
-import HitMovieCards from "./HitCards.js"
 import release from '../media/New_Release.webp';
 
 
@@ -33,8 +31,7 @@ const Home = (props) => {
                 
             </Content>
             <FilmCards/>
-            <PopularMovieCards/>
-            <HitMovieCards />
+            
             
         </Container>
        <Fade />
