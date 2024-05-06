@@ -56,6 +56,8 @@ const Fade = styled.div`
 `;
 const Length = styled.div`
     height:1000px;
+    overflow-x: hidden;
+    overflow-y:hidden;
 `;
 const Container = styled.section`
     display: flex;
