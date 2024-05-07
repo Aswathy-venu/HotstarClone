@@ -1,73 +1,30 @@
 import styled from "styled-components";
-import bgVideo from "../media/video1.mp4";
-import avatar from "../media/avatar.webp";
-import FilmCards from "./Movieslist.js";
-import release from '../media/New_Release.webp';
 
-
-const Home = (props) => {
-    return(
-        <>
-        <Length>
-        <Container>
-            <Content>
-                <Image>
-                  <img src={avatar} alt="avantar" className="avatar"/>
-                    <img src={release} alt="release" className="release"/>
-                    <p>2022 <span>&#9679;</span> 3h 12m <span>&#9679;</span> 6 Languages <span>&#9679;</span> <button>U/A 13+</button></p>
-                    <a href="/">Set more than a decade after the first film, dive into the story of<br></br>
-                        the Sully family0; the lengths they go to keep each other safe<br></br>
-                        and the tragedies they endure.</a>
-                    <h4>Science Fiction <span>&#124;</span> Action <span>&#124;</span> Adventure <span>&#124;</span> Fantasy </h4>
-                    <button className="subscribe">&#9654;&nbsp;&nbsp;Subscribe To Watch</button>
-                    <button className="plusbutton">&#43;</button> 
-                </Image>
-                <Video>
-                <GradientOverlay />
-                <Gradient />
-                    <video src={bgVideo} autoPlay loop muted>
-                    </video>
-                </Video>
-                
-            </Content>
-            <FilmCards/>
-            
-            
-        </Container>
-       <Fade />
-       <FadeBottom />
-       </Length>
-       </>
- 
-    );
-};
-
-const FadeBottom = styled.div`
-    height:87.4rem;
-    background-image:linear-gradient(rgb(19,18,18),rgb(0,0,0));
-    position: relative;
-    bottom:85px;
-`;
-const Fade = styled.div`
-    height: 7.4rem;
-    background-image: linear-gradient(180deg,transparent,rgba(37,37,37,.61),#111);
-    position: relative;
-    bottom: 85px;
-`;
-const Length = styled.div`
-    height:1000px;
+export const Length = styled.div`
+    height:2000px;
     overflow-x: hidden;
     overflow-y:hidden;
 `;
-const Container = styled.section`
+
+export const Container = styled.section`
     display: flex;
     flex-direction: column;
     text-align: center;  
     height: 100vh;   
-  
 `;
 
-const Image = styled.div`
+export const Content = styled.div`
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    flex-direction: column;
+    padding: 80px 40px;
+`;
+
+export const Image = styled.div`
     margin-right:500px;
 
     img.avatar{
@@ -89,14 +46,17 @@ const Image = styled.div`
         right:100px;
         font-weight: bold;
         color:RGB(179, 179, 179);
+
         &:hover {
             color: white;
         }
+
         span{
             margin-left:3px;
             font-size:3px;
             color:RGB(179, 179, 179);
         }
+
         button{ 
         padding: 6px 12px;
         font-size: 15px;
@@ -107,14 +67,16 @@ const Image = styled.div`
         border-radius: 7px;
         margin-right: 80px;
         margin-top: 25px;    
-    }
+        }
     }
    
     h4{
         position: relative;
         left:-16%;
         right:100px;
+        top:-20px;
         color:RGB(179, 179, 179);
+
         &:hover {
             color: white;
         }
@@ -135,6 +97,7 @@ const Image = styled.div`
         margin-left:9%;
         color:RGB(179, 179, 179);
         padding-bottom:20px;
+
         &:hover {
             color: white;
         }
@@ -153,10 +116,10 @@ const Image = styled.div`
         margin-left: -25%;
         padding-top: 10px;
         padding-bottom: 10px;
+
         &:hover {
             transform: scale(1.02);
         }
-           
     }
     
     button.plusbutton{ 
@@ -171,25 +134,38 @@ const Image = styled.div`
         position: relative;
         margin-left:-65px;
         margin-top:10px;
-     }
+    }
 `;
 
-const Content = styled.div`
-    /* margin-bottom: 10vw; */ 
-    width: 100%;
+export const FadeBottom = styled.div`
+    height:87.4rem;
+    background-image:linear-gradient(rgb(19,18,18),rgb(0,0,0));
     position: relative;
-    /* min-height: 100vh; */
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center ;
-    flex-direction: column;
-    padding: 80px 40px;
-    /* height: 100%; */
-
+    bottom:85px;
 `;
 
-const GradientOverlay = styled.div`
+export const Fade = styled.div`
+    height: 7.4rem;
+    background-image: linear-gradient(180deg,transparent,rgba(37,37,37,.61),#111);
+    position: relative;
+    bottom: 85px;
+`;
+
+export const Video = styled.div`
+    background-position:top;
+    background-size : cover;
+    position: fixed;
+    top:0;
+    right:0;
+    left:0;
+    z-index : -1;
+
+    video{
+        width:100%; 
+    }
+`;
+
+export const GradientOverlay = styled.div`
     position: absolute;
     top: 0;
     left: 0;
@@ -199,7 +175,7 @@ const GradientOverlay = styled.div`
     z-index: 1;
 `;
 
-const Gradient = styled.div`
+export const Gradient = styled.div`
     position: absolute;
     top: 80%;
     left: 0;
@@ -209,19 +185,3 @@ const Gradient = styled.div`
     z-index: 1;
 `;
 
-const Video =styled.div`
-    background-position:top;
-    background-size : cover;
-    position: fixed;
-    top:0;
-    right:0;
-    left:0;
-    z-index : -1;
-    video{
-        width:100%; 
-    }
-`;
-
-
-
-export default Home;
