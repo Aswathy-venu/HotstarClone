@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
-import { fetchData } from '../../api/MovieCards';
-import * as Elements from './LatestReleases.Style';
+import * as Elements from './LatestReleases.Style'
+import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { fetchData } from '../../api/MovieCards'
 
-const Movielist = (props) => {
+const LatestReleases = (props) => {
   const [movies, setMovies] = useState([]);
   const [index, setIndex] = useState(0);
   useEffect(() => {
@@ -32,7 +32,7 @@ const Movielist = (props) => {
           <Elements.Card key={index}>
             <img src={movie.posterURL} alt={`Movie ${index + 1}`} />
             <Elements.Description>
-              <Link to="/Detailed-Page">
+              <Link to={`/Detailed-Page/${movie.id}`}>
               <button className="subscribe">Watch Now</button>
               </Link>
               <button className="plusbutton">&#43;</button>
@@ -47,5 +47,4 @@ const Movielist = (props) => {
     </Elements.ImageCard>
   );
 };
-export default Movielist;
-
+export default LatestReleases;

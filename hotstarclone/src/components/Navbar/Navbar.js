@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import * as Element from '../Navbar/Navbar.Style.jsx';
-import Logo from '../../media/logo.webp';
-import Account from '../../media/account.svg';
-import Home from '../../media/home.svg';
-import Search from '../../media/icon1.svg';
-import Tv from '../../media/tv.svg';
-import Movie from '../../media/movie.svg';
-import Sports from '../../media/sports.svg';
-import Category from '../../media/category.svg';
+import React, { useState } from 'react'
+import * as Element from '../Navbar/Navbar.Style.jsx'
+import Logo from '../../media/logo.webp'
+import Account from '../../media/account.svg'
+import Home from '../../media/home.svg'
+import Search from '../../media/icon1.svg'
+import Tv from '../../media/tv.svg'
+import Movie from '../../media/movie.svg'
+import Sports from '../../media/sports.svg'
+import Category from '../../media/category.svg'
 
 const Navbar = (props) => {
     const [isContentVisible, setIsContentVisible] = useState(false);

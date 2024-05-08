@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { loveStories } from '../../api/MovieCards';
-import * as Elements from './LoveStories.Style';
+import React, { useEffect, useState } from 'react'
+import { loveStories } from '../../api/MovieCards'
+import * as Elements from './LoveStories.Style'
 
-const Movielist = (props) => {
+const LoveStories = (props) => {
   const [movies, setMovies] = useState([]);
   const [index, setIndex] = useState(0);
   useEffect(() => {
@@ -44,5 +44,5 @@ const Movielist = (props) => {
     </Elements.ImageCard>
   );
 };
-export default Movielist;
+export default LoveStories;
 

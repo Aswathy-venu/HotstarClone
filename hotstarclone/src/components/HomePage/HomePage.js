@@ -1,13 +1,13 @@
-import FilmCards from "../MovieList/LatestReleases.js";
-import PopularShows from "../MovieList/PopularShows.js";
-import LoveStories from "../MovieList/LoveStories.js";
 import * as Elements from '../HomePage/HomePage.Style.jsx'
-import BgVideo from "../../media/video1.mp4";
-import Avatar from "../../media/avatar.webp";
-import Release from '../../media/New_Release.webp';
+import FilmCards from '../MovieList/LatestReleases.js'
+import PopularShows from '../MovieList/PopularShows.js'
+import LoveStories from '../MovieList/LoveStories.js'
+import BgVideo from '../../media/video1.mp4'
+import Avatar from '../../media/avatar.webp'
+import Release from '../../media/New_Release.webp'
 
 
-const Home = (props) => {
+const HomePage = (props) => {
     return(
         <>
         <Elements.Length>
@@ -44,4 +44,4 @@ const Home = (props) => {
  
     );
 };
-export default Home;
+export default HomePage;

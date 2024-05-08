@@ -27,3 +27,5 @@ export const fetchData = async () => {
       console.error('Error fetching data:', error);
     }
   };
+
+  

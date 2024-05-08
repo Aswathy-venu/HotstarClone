@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { popularShows } from '../../api/MovieCards';
-import * as Elements from './PopularShow.Style';
+import React, { useEffect, useState } from 'react'
+import { popularShows } from '../../api/MovieCards'
+import * as Elements from './PopularShow.Style'
 
-const Movielist = (props) => {
+const PopularShows = (props) => {
   const [movies, setMovies] = useState([]);
   const [index, setIndex] = useState(0);
   useEffect(() => {
@@ -44,5 +44,5 @@ const Movielist = (props) => {
     </Elements.ImageCard>
   );
 };
-export default Movielist;
+export default PopularShows;
 
