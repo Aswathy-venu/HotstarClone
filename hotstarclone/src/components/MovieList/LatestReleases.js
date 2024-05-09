@@ -2,6 +2,7 @@ import * as Elements from './LatestReleases.Style'
 import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import { fetchData } from '../../api/MovieCards'
+import Favorite from '../../media/grade.svg'
 
 const LatestReleases = (props) => {
   const [movies, setMovies] = useState([]);

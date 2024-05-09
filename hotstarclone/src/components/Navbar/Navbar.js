@@ -47,6 +47,10 @@ const Navbar = (props) => {
                     <img src={Category} alt="category" />
                     <span style={{ left: isContentVisible ? '0' : '-30%', visibility: isContentVisible ? 'visible' : 'hidden' }}>Categories</span>
                 </Element.NavItem>
+                <Element.NavItem>
+                    <img src={Category} alt="category" />
+                    <span style={{ left: isContentVisible ? '0' : '-30%', visibility: isContentVisible ? 'visible' : 'hidden' }}>Favorites</span>
+                </Element.NavItem>
             </Element.NavMenu>
         </Element.Nav>
     );
