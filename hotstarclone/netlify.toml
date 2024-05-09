@@ -1,4 +1,4 @@
 [build]
-base="my-react-app"
+base="hotstarclone"
 command="npm run build"
 publish="build"
