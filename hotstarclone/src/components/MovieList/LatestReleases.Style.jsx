@@ -15,7 +15,7 @@ button.left{
   background:none;
   border:none;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0)); 
-  height:210px;
+  height:212px;
   margin-left: 4px;
   margin-top:10px;
 }
@@ -49,38 +49,36 @@ export const MovieContainer = styled.div`
   flex-wrap: nowrap;
   width: 8850px;
 `;
+
 export const Card = styled.div`
   position: relative;
   width: 155px;
   height: 210px;
   margin: 4px;
-  
   transition: transform 0.3s ease-in-out;
   &:hover {
     transform: scale(1.7);
     z-index: 3;
-    
     img{
     height  : 72%;
     }
-
 
   }
   img {
     width: 100%; 
     height: 100%;
     border-radius:6px;
-  
-    
   }
 
 `;
+
+
 export const Description = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-   background-color: black;    
+   background-color: black;     
   padding: 10px;
   box-sizing: border-box;
   opacity: 0;
@@ -104,8 +102,8 @@ export const Description = styled.div`
     margin-bottom:-7px;
   }
   button.subscribe{
-    margin-left:-6px;
-    padding: 7px 30px;
+    margin-left:-10px;
+    padding: 7px 15px;
         font-size: 10px;
         font-weight: bold;
         color:black;
@@ -120,8 +118,16 @@ export const Description = styled.div`
         padding:4px 8px;
         margin-left:3px;
         font-weight: bold; 
-        color:white;
-        background-color: transparent;
+        border: none;
+        border-radius: 4px;
+        &:hover {
+            transform: scale(1.02);
+        }
+  } 
+
+  button.gradebutton{
+        padding:4px 8px;
+        margin-left:3px;
         border: none;
         border-radius: 4px;
         &:hover {
