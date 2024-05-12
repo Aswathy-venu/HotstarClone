@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Length = styled.div`
-    height:2000px;
+    height:1650px;
     overflow-x: hidden;
     overflow-y:hidden;
 `;

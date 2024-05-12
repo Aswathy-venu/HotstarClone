@@ -2,6 +2,7 @@ import * as Elements from '../HomePage/HomePage.Style.jsx'
 import FilmCards from '../MovieList/LatestReleases.js'
 import PopularShows from '../MovieList/PopularShows.js'
 import LoveStories from '../MovieList/LoveStories.js'
+import Footer from '../Footer/Footer.js'
 import BgVideo from '../../media/video1.mp4'
 import Avatar from '../../media/avatar.webp'
 import Release from '../../media/New_Release.webp'
@@ -35,7 +36,7 @@ const HomePage = (props) => {
             <FilmCards/>
             <PopularShows/>
             <LoveStories/>
-            
+            <Footer/>
         </Elements.Container>
        <Elements.Fade />
        <Elements.FadeBottom />
