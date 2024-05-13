@@ -140,71 +140,122 @@ export const Description = styled.div`
 
 
 
-export const ModalOverlay = styled.div`
+// export const ModalOverlay = styled.div`
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background-color: rgba(0, 0, 0, 0.5);
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   z-index: -1; /* Ensure the modal is displayed on top of other content */
+// `;
+
+// export const ModalContent = styled.div`
+//   background-color: white;
+//   padding: 10px; /* Adjust padding as needed */
+//   border-radius: 8px;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   max-width: 300px; /* Decrease the max-width to limit the size of the modal */
+// `;
+
+// export const ImgCard = styled.div`
+//   position: relative;
+//   width: 120px; /* Decrease the width of the card */
+//   height: 160px; /* Decrease the height of the card */
+//   margin: 4px;
+//   transition: transform 0.3s ease-in-out;
+//   &:hover {
+//     transform: scale(1.7);
+//     z-index: 3;
+//     img {
+//       height: 32%;
+//       width:30px;
+//     }
+//   }
+//   img {
+//     width: 100%;
+//     height: 100%;
+//     border-radius: 6px;
+//   }
+// `;
+
+
+// export const CloseButton = styled.button`
+//   position: absolute;
+//   top: 5px;
+//   right: 150px;
+//   background: none;
+//   border: none;
+//   font-size: 24px;
+//   cursor: pointer;
+//   color: #555;
+// `;
+
+// export const CardContainer = styled.div`
+//   display: flex; 
+//    flex-wrap: raw;
+//   /* justify-content: space-around; */
+// `;
+
+// export const CardImage = styled.img`
+//   width:4%;
+//   height: auto;
+//   border-radius: 4px;
+// `;
+
+export const Modal= styled.div`
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: -1; /* Ensure the modal is displayed on top of other content */
-`;
-
-export const ModalContent = styled.div`
-  background-color: white;
-  padding: 10px; /* Adjust padding as needed */
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 300px; /* Decrease the max-width to limit the size of the modal */
-`;
-
-export const ImgCard = styled.div`
-  position: relative;
-  width: 120px; /* Decrease the width of the card */
-  height: 160px; /* Decrease the height of the card */
-  margin: 4px;
-  transition: transform 0.3s ease-in-out;
-  &:hover {
-    transform: scale(1.7);
-    z-index: 3;
-    img {
-      height: 32%;
-      width:30px;
-    }
+    margin-top: -15%;
+    margin-left: 35%;
+    transform: translate(-30%, -40%);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 30%;
+    max-height: 70%;
+    overflow-y: auto;
+    z-index: 100;
+   
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 80%;
+    max-height: 80%;
+    overflow-y: auto;
+   
+  `;
+   
+export const ModalContent= styled.div`
+    padding: 5px;
+    width: auto; /* Adjust width as needed */
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+   
+  span {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
   }
-  img {
-    width: 100%;
-    height: 100%;
-    border-radius: 6px;
+   
+  span.hover {
+    color: red;
   }
-`;
-
-
-export const CloseButton = styled.button`
-  position: absolute;
-  top: 5px;
-  right: 150px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: #555;
-`;
-
-export const CardContainer = styled.div`
-  display: flex; 
-   flex-wrap: raw;
-  /* justify-content: space-around; */
-`;
-
-export const CardImage = styled.img`
-  width:4%;
-  height: auto;
-  border-radius: 4px;
-`;
-
+  h2{
+    color: black;
+  }
+  h3{
+    color: black;
+  }
+  `;
