@@ -17,17 +17,29 @@ const LatestReleases = (props) => {
 
   useEffect(() => {
     fetchData().then((result) => setMovies(result));
-    console.log("fav movies",favoritemovies)
-  }, [favoritemovies]);
+  }, []);
 
   useEffect(() => {
     setStarColors(new Array(movies.length).fill('black'));
   }, [movies]);
 
+  const nextSlide = () => {
+    const newIndex = (index + 8) % movies.length;
+    setIndex(newIndex);
+  };
+
+  const prevSlide = () => {
+    const newIndex = (index - 8 + movies.length) % movies.length;
+    setIndex(newIndex);
+  };
+
   const handleStarClick = (clickedIndex,movie) => {
+    console.log("index " ,clickedIndex,movie)
+    console.log("got in" )
     const updatedStarColors = [...starColors];
     if (updatedStarColors[clickedIndex] === 'yellow') {
       updatedStarColors[clickedIndex] = 'black'; 
+      console.log("got into if" )
       // Unstarred, so set color back to black
       decrementFavoritesCount(); // Decrement favorites count when a movie is removed from favorites
       setFavoriteMovies(favoritemovies => favoritemovies.filter((fav) => fav.id !== movie.id)
@@ -35,24 +47,17 @@ const LatestReleases = (props) => {
 
     } else {
       updatedStarColors[clickedIndex] = 'yellow'; // Starred, so set color to yellow
+      console.log("got into else" )
       incrementFavoritesCount(); // Increment favorites count when a movie is added to favorites
       setFavoriteMovies((prevMovies) => [...prevMovies,movie]);
     setStarColors(updatedStarColors);
+    console.log("star color", updatedStarColors)
   };
 
 
   }
 
-  const nextSlide = () => {
-    const newIndex = (index + 4) % movies.length;
-    setIndex(newIndex);
-  };
-
-  const prevSlide = () => {
-    const newIndex = (index - 4 + movies.length) % movies.length;
-    setIndex(newIndex);
-  };
-
+ 
 
  
   
@@ -78,8 +83,7 @@ const LatestReleases = (props) => {
               <button
                 className="gradebutton"
                 onClick={() => handleStarClick(index + movieIndex,movie)}
-                style={{ color: starColors[index + movieIndex] }}
-              >
+                style={{ color: starColors[index + movieIndex] }}>
                 <IoMdStar />
               </button>
               <p className="label">2022 <span>&#9679;</span> 3h 12m <span>&#9679;</span> 6 Languages <span>&#9679;</span></p>
