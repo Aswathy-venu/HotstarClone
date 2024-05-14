@@ -1,4 +1,5 @@
 import React, { useState,useContext } from 'react';
+import { FavoritesContext } from '../MovieList/FavoritesContext.js'; 
 import * as Element from './Navbar.Style';
 import Logo from '../../media/logo.webp';
 import Account from '../../media/account.svg';
@@ -9,7 +10,6 @@ import Movie from '../../media/movie.svg';
 import Sports from '../../media/sports.svg';
 import Category from '../../media/category.svg';
 import Favorites from '../../media/favorite.svg';
-import { FavoritesContext } from '../MovieList/FavoritesContext.js'; // Import useFavorites hook
 import * as Elements from '../../components/MovieList/LatestReleases.Style.jsx';
 
 
@@ -78,11 +78,9 @@ const Navbar = (props) => {
             {favoritemovies.map((movie, index) => (
               
               <div key={index} >
-                {/* <h3 className='head-modal'>{movie.title}</h3>
-                <p>{movie.description}</p> */}
-                     <div key={index} style={{width:'50%' ,height:'50%', border:'3px solid black'}}>
-            <img src={movie.posterURL} alt=""/>
-         </div>
+                  <div key={index} style={{width:'50%' ,height:'50%', border:'3px solid black'}}>
+                    <img src={movie.posterURL} alt=""/>
+                  </div>
               </div>
             ))}
           </Elements.ModalContent>

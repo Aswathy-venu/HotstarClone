@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
+import FilmCards from '../MovieList/LatestReleases.js'
 import * as Elements from '../DetailedPage/DetailedPage.Style'
 import Release from '../../media/New_Release.webp'
 
@@ -28,7 +29,6 @@ const DetailedPage = () => {
             <Elements.Content>
                 <Elements.Image>
                   <h2 alt="text">{movies.title}</h2>
-                    <img src={Release} alt="release" className="release"/>
                     <p>2022 <span>&#9679;</span> 3h 12m <span>&#9679;</span> 6 Languages <span>&#9679;</span> <button>U/A 13+</button></p>
                     <a href="/">Set more than a decade after the first film, dive into the story of<br></br>
                         the Sully family0; the lengths they go to keep each other safe<br></br>
@@ -46,12 +46,17 @@ const DetailedPage = () => {
                 </Elements.Video>
                 
             </Elements.Content>
-           
-            
+            <Elements.MoreLike>
+              <span className='morelike'>More Like This</span>
+              <span className='trailers'>Trailers & More</span>
+              <Elements.LineUnderMoreLike />
+            </Elements.MoreLike>
+            <Elements.Card><FilmCards/></Elements.Card>
         </Elements.Container>
        <Elements.Fade />
        <Elements.FadeBottom />
        </Elements.Length>
+    
        </>
  
     );

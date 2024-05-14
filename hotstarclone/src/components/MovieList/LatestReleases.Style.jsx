@@ -116,7 +116,7 @@ export const Description = styled.div`
   }
   button.plusbutton{
         padding:4px 8px;
-        margin-left:3px;
+        margin-left:2px;
         font-weight: bold; 
         border: none;
         border-radius: 4px;
@@ -126,7 +126,7 @@ export const Description = styled.div`
   } 
 
   button.gradebutton{
-        padding:4px 8px;
+        padding:3px 5px;
         margin-left:3px;
         border: none;
         border-radius: 4px;
@@ -136,77 +136,6 @@ export const Description = styled.div`
   } 
   }
 `;
-
-
-
-
-// export const ModalOverlay = styled.div`
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   background-color: rgba(0, 0, 0, 0.5);
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   z-index: -1; /* Ensure the modal is displayed on top of other content */
-// `;
-
-// export const ModalContent = styled.div`
-//   background-color: white;
-//   padding: 10px; /* Adjust padding as needed */
-//   border-radius: 8px;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   max-width: 300px; /* Decrease the max-width to limit the size of the modal */
-// `;
-
-// export const ImgCard = styled.div`
-//   position: relative;
-//   width: 120px; /* Decrease the width of the card */
-//   height: 160px; /* Decrease the height of the card */
-//   margin: 4px;
-//   transition: transform 0.3s ease-in-out;
-//   &:hover {
-//     transform: scale(1.7);
-//     z-index: 3;
-//     img {
-//       height: 32%;
-//       width:30px;
-//     }
-//   }
-//   img {
-//     width: 100%;
-//     height: 100%;
-//     border-radius: 6px;
-//   }
-// `;
-
-
-// export const CloseButton = styled.button`
-//   position: absolute;
-//   top: 5px;
-//   right: 150px;
-//   background: none;
-//   border: none;
-//   font-size: 24px;
-//   cursor: pointer;
-//   color: #555;
-// `;
-
-// export const CardContainer = styled.div`
-//   display: flex; 
-//    flex-wrap: raw;
-//   /* justify-content: space-around; */
-// `;
-
-// export const CardImage = styled.img`
-//   width:4%;
-//   height: auto;
-//   border-radius: 4px;
-// `;
 
 export const Modal= styled.div`
   position: fixed;

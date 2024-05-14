@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Length = styled.div`
-    height:900px;
+    height:750px;
     overflow-x: hidden;
     overflow-y:hidden;
 `;
@@ -28,28 +28,21 @@ export const Image = styled.div`
     margin-right:500px;
 
     h2{
-        width:50%; 
-        margin-right:32%;
-        margin-top:4%;   
+        font-size: 60px;
+        width:90%; 
+        margin-top:10%;  
+        margin-left:30px; 
+        text-align: left;
     }
-
-    img.release{
-        width:13%;
-        margin-top:1%;
-        margin-right: 69%;  
-    }
-
     p{
         position: relative;
-        top:-6%;
-        margin-left: 3%;
+        top:-10%;
+        margin-left: 140px;
         right:100px;
         font-weight: bold;
-        color:RGB(179, 179, 179);
+        color:rgb(255, 250, 250);
 
-        &:hover {
-            color: white;
-        }
+    
 
         span{
             margin-left:3px;
@@ -72,14 +65,12 @@ export const Image = styled.div`
    
     h4{
         position: relative;
-        left:-16%;
+        left:-10%;
         right:100px;
         top:-20px;
-        color:RGB(179, 179, 179);
+        color:rgb(255, 255, 255);
 
-        &:hover {
-            color: white;
-        }
+        
         span{
             font-size:16px;
             color:RGB(179, 179, 179);
@@ -91,48 +82,42 @@ export const Image = styled.div`
     a{
         display:flex;
         font-size:15px;
-        margin-top:-4%; 
+        margin-top:-10%; 
         line-height: 23px;
         text-align: left;
-        margin-left:9%;
-        color:RGB(179, 179, 179);
+        margin-left:7%;
+        color:rgb(255, 251, 251);
         padding-bottom:20px;
 
-        &:hover {
-            color: white;
-        }
     }
 
     button.subscribe{ 
         padding: 13px 60px;
         font-size: 19px;
         font-weight: bold;
-        color:rgb(252, 246, 246);
-        background-color: rgba(250, 247, 251, 0.2);
+        color:rgb(7, 1, 1);
+        background-color: rgb(250, 247, 251);
         border: none;
         border-radius: 9px;
-        margin-right: 80px;
         margin-bottom: 10%; 
-        margin-left: -25%;
+        margin-left: -14%;
         padding-top: 10px;
         padding-bottom: 10px;
 
-        &:hover {
-            transform: scale(1.02);
-        }
+        
     }
     
     button.plusbutton{ 
         padding: 4px 15px;
         font-size: 30px;
         color:rgb(252, 246, 246);
-        background-color: rgba(250, 247, 251, 0.2);
+        background-color: rgba(69, 68, 70, 0.596);
         border: none;
         border-radius: 5px;
         padding-top: -2px;
         bottom:-5px;
         position: relative;
-        margin-left:-65px;
+        margin-left:5px;
         margin-top:10px;
     }
 `;
@@ -145,7 +130,7 @@ export const FadeBottom = styled.div`
 `;
 
 export const Fade = styled.div`
-    height: 7.4rem;
+    height: 1.4rem;
     background-image: linear-gradient(180deg,transparent,rgba(37,37,37,.61),#111);
     position: relative;
     bottom: 85px;
@@ -193,3 +178,26 @@ export const Gradient = styled.div`
     z-index: 1;
 `;
 
+
+export const MoreLike = styled.div`
+  margin-top:-12px;
+    z-index:15;
+    bottom:30px;
+
+    span.morelike{
+        font-size: 20px;
+        margin-left:-590px;
+        
+    }
+    span.trailers {
+        font-size: 20px;
+        margin-left: 90px;
+    }
+`;
+
+export const LineUnderMoreLike = styled.div`
+  border-bottom: 2px solid #ccc;
+  width: 100%;
+  margin-top: 10px; 
+  margin-left:160px;
+`;

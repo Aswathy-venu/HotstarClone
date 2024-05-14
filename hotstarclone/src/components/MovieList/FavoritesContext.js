@@ -1,6 +1,3 @@
-
-
-
 import React, { createContext, useState, useContext } from 'react';
 
 const FavoritesContext = createContext();
@@ -14,7 +11,7 @@ const FavoritesProvider = ({ children }) => {
   };
 
   const decrementFavoritesCount = () => {
-    setFavoritesCount(prevCount => Math.max(prevCount - 1, 0)); // Ensure count never goes below 0
+    setFavoritesCount(prevCount => Math.max(prevCount - 1, 0));
   };
 
   return (

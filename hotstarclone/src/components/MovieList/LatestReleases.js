@@ -18,10 +18,6 @@ const LatestReleases = (props) => {
     fetchData().then((result) => setMovies(result));
   },[]);
 
-  useEffect(() => {
-    setStarColors(new Array(movies.length).fill('black'));
-  },[movies]);
-
   const nextSlide = () => {
     const newIndex = (index + 8) % movies.length;
     setIndex(newIndex);
@@ -34,31 +30,17 @@ const LatestReleases = (props) => {
 
   const handleStarClick = (clickedIndex, movie) => {
     const updatedStarColors = [...starColors];
-    const isFavorite = updatedStarColors[clickedIndex] === 'yellow';
-    
+    const isFavorite = updatedStarColors[clickedIndex] === 'Red';
     if (isFavorite) {
-    
         decrementFavoritesCount(); 
         setFavoriteMovies(prevMovies => prevMovies.filter(fav => fav.id !== movie.id));
     } else {
- 
         incrementFavoritesCount();
         setFavoriteMovies(prevMovies => [...prevMovies, movie]);
     }
-  
-    updatedStarColors[clickedIndex] = isFavorite ? 'black' : 'yellow';
+    updatedStarColors[clickedIndex] = isFavorite ? 'black' : 'Red';
     setStarColors(updatedStarColors);
 };
-
-
-  
-
- 
-
- 
-  
- 
- 
 
   return (
     <Elements.ImageCard>
