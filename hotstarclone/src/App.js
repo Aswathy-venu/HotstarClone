@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <FavoritesProvider> {/* Wrap your application with FavoritesProvider */}
+        <FavoritesProvider> 
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />

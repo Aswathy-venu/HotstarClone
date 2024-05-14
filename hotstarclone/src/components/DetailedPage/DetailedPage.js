@@ -1,6 +1,6 @@
-import * as Elements from '../DetailedPage/DetailedPage.Style'
 import { useParams } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
+import * as Elements from '../DetailedPage/DetailedPage.Style'
 import Release from '../../media/New_Release.webp'
 
 const DetailedPage = () => {

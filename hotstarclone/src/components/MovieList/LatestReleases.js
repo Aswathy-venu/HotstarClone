@@ -10,18 +10,17 @@ const LatestReleases = (props) => {
   const [movies, setMovies] = useState([]);
   const [index, setIndex] = useState(0);
   const [starColors, setStarColors] = useState([]);
-  const { incrementFavoritesCount, decrementFavoritesCount } = useContext(FavoritesContext);
-
-    const {favoritemovies, setFavoriteMovies} = useContext(FavoritesContext);
+  const {incrementFavoritesCount, decrementFavoritesCount } = useContext(FavoritesContext);
+  const {favoritemovies, setFavoriteMovies} = useContext(FavoritesContext);
 
 
   useEffect(() => {
     fetchData().then((result) => setMovies(result));
-  }, []);
+  },[]);
 
   useEffect(() => {
     setStarColors(new Array(movies.length).fill('black'));
-  }, [movies]);
+  },[movies]);
 
   const nextSlide = () => {
     const newIndex = (index + 8) % movies.length;
@@ -33,29 +32,26 @@ const LatestReleases = (props) => {
     setIndex(newIndex);
   };
 
-  const handleStarClick = (clickedIndex,movie) => {
-    console.log("index " ,clickedIndex,movie)
-    console.log("got in" )
+  const handleStarClick = (clickedIndex, movie) => {
     const updatedStarColors = [...starColors];
-    if (updatedStarColors[clickedIndex] === 'yellow') {
-      updatedStarColors[clickedIndex] = 'black'; 
-      console.log("got into if" )
-      // Unstarred, so set color back to black
-      decrementFavoritesCount(); // Decrement favorites count when a movie is removed from favorites
-      setFavoriteMovies(favoritemovies => favoritemovies.filter((fav) => fav.id !== movie.id)
-    );
-
+    const isFavorite = updatedStarColors[clickedIndex] === 'yellow';
+    
+    if (isFavorite) {
+    
+        decrementFavoritesCount(); 
+        setFavoriteMovies(prevMovies => prevMovies.filter(fav => fav.id !== movie.id));
     } else {
-      updatedStarColors[clickedIndex] = 'yellow'; // Starred, so set color to yellow
-      console.log("got into else" )
-      incrementFavoritesCount(); // Increment favorites count when a movie is added to favorites
-      setFavoriteMovies((prevMovies) => [...prevMovies,movie]);
+ 
+        incrementFavoritesCount();
+        setFavoriteMovies(prevMovies => [...prevMovies, movie]);
+    }
+  
+    updatedStarColors[clickedIndex] = isFavorite ? 'black' : 'yellow';
     setStarColors(updatedStarColors);
-    console.log("star color", updatedStarColors)
-  };
+};
 
 
-  }
+  
 
  
 
@@ -82,7 +78,7 @@ const LatestReleases = (props) => {
               <button className="plusbutton">&#43;</button>
               <button
                 className="gradebutton"
-                onClick={() => handleStarClick(index + movieIndex,movie)}
+                onClick={() => handleStarClick(index + movieIndex, movie)}
                 style={{ color: starColors[index + movieIndex] }}>
                 <IoMdStar />
               </button>
@@ -92,7 +88,7 @@ const LatestReleases = (props) => {
           </Elements.Card>
         ))}
       </Elements.MovieContainer>
-   
+
     </Elements.ImageCard>
   );
 };
