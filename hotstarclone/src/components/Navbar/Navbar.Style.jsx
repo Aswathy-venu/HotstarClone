@@ -15,7 +15,7 @@ export const Nav = styled.nav`
         height: 100%;
         background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0)); 
         z-index: 4;
-        position:fixed;
+        position: fixed;
     }
 `;
 
@@ -51,20 +51,16 @@ export const NavItem = styled.div`
     width: 68px;
     position: relative;
 
-    .home{
-        color: white;
-    }
-
     &:hover {
         transform: scale(1.2);
 
         img {
             filter: brightness(0) invert(1);
-            fill:white;
+            fill: white;
         }
 
         span {
-            color: white; 
+            color: white;
         }
     }
 
@@ -76,14 +72,21 @@ export const NavItem = styled.div`
     }
 
     span { 
-        position: absolute;  
+        position: absolute;
         width: 90px;
         margin-top: -55px;
         margin-left: 70px;
         display: flex;
         font-size: 18px;
         padding-bottom: 40px;
+        color: grey;   
         transition: left 0.5s ease;
-        color:grey;   
+        left: ${({ isContentVisible }) => (isContentVisible ? '0' : '-30%')};
+        visibility: ${({ isContentVisible }) => (isContentVisible ? 'visible' : 'hidden')};
     }
+`;
+
+export const Count = styled.div`
+    margin-left: 35px;
+    margin-top: -29px;
 `;

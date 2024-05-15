@@ -85,7 +85,7 @@ export const FooterRight = styled.div`
     text-align: left;
 
     p {
-        margin-right: 560px;
+        margin-right: 630px;
         font-size: 12px;
         color: grey;
     }

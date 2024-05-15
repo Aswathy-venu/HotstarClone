@@ -1,6 +1,7 @@
-import React, { useState,useContext } from 'react';
-import { FavoritesContext } from '../MovieList/FavoritesContext.js'; 
+import React, { useState,useContext} from 'react';
+
 import * as Element from './Navbar.Style';
+import Modal from '../Modal/Modal.js'
 import Logo from '../../media/logo.webp';
 import Account from '../../media/account.svg';
 import Home from '../../media/home.svg';
@@ -10,26 +11,19 @@ import Movie from '../../media/movie.svg';
 import Sports from '../../media/sports.svg';
 import Category from '../../media/category.svg';
 import Favorites from '../../media/favorite.svg';
-import * as Elements from '../../components/MovieList/LatestReleases.Style.jsx';
+import { FavoritesContext } from '../MovieList/FavoritesContext.js';
 
 
 const Navbar = (props) => {
   const [isContentVisible, setIsContentVisible] = useState(false);
-  const {favoritesCount} = useContext(FavoritesContext); // Access favorites count from context
+  const { favoritesCount, favoritemovies } = useContext(FavoritesContext);
   const [showModal, setShowModal] = useState(false);
-  const {favoritemovies} = useContext(FavoritesContext);
-  
 
   const handleOpenModal = () => {
     setShowModal(true);
     console.log("Modal opened");
   };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-    console.log("Modal closed");
-  };
-
+  
   return (
     <Element.Nav>
       <Element.Logo>
@@ -37,55 +31,43 @@ const Navbar = (props) => {
         <button type="button">Subscribe &gt;</button>
       </Element.Logo>
       <Element.NavMenu onMouseEnter={() => setIsContentVisible(true)} onMouseLeave={() => setIsContentVisible(false)}>
-        <Element.NavItem>
+        <Element.NavItem isContentVisible={isContentVisible}>
           <img src={Account} alt="account" />
-          <span style={{ left: isContentVisible ? '0' : '-30%', visibility: isContentVisible ? 'visible' : 'hidden' }}>My Space</span>
+          <span>My Space</span>
         </Element.NavItem>
-        <Element.NavItem>
+        <Element.NavItem isContentVisible={isContentVisible}>
           <img src={Search} alt="search" />
-          <span style={{ left: isContentVisible ? '0' : '-30%', visibility: isContentVisible ? 'visible' : 'hidden' }}>Search</span>
+          <span>Search</span>
         </Element.NavItem>
-        <Element.NavItem>
+        <Element.NavItem isContentVisible={isContentVisible}>
           <img className='home' src={Home} alt="home" />
-          <span className='home' style={{ left: isContentVisible ? '0' : '-30%', visibility: isContentVisible ? 'visible' : 'hidden' }}>Home</span>
+          <span className='home'>Home</span>
         </Element.NavItem>
-        <Element.NavItem>
+        <Element.NavItem isContentVisible={isContentVisible}>
           <img src={Tv} alt="tv" />
-          <span style={{ left: isContentVisible ? '0' : '-30%', visibility: isContentVisible ? 'visible' : 'hidden' }}>TV</span>
+          <span>TV</span>
         </Element.NavItem>
-        <Element.NavItem>
+        <Element.NavItem isContentVisible={isContentVisible}>
           <img src={Movie} alt="movie" />
-          <span style={{ left: isContentVisible ? '0' : '-30%', visibility: isContentVisible ? 'visible' : 'hidden' }}>Movies</span>
+          <span>Movies</span>
         </Element.NavItem>
-        <Element.NavItem>
+        <Element.NavItem isContentVisible={isContentVisible}>
           <img src={Sports} alt="sports" />
-          <span style={{ left: isContentVisible ? '0' : '-30%', visibility: isContentVisible ? 'visible' : 'hidden' }}>Sports</span>
+          <span>Sports</span>
         </Element.NavItem>
-        <Element.NavItem>
+        <Element.NavItem isContentVisible={isContentVisible}>
           <img src={Category} alt="category" />
-          <span style={{ left: isContentVisible ? '0' : '-30%', visibility: isContentVisible ? 'visible' : 'hidden' }}>Categories</span>
+          <span>Categories</span>
         </Element.NavItem>
-        <Element.NavItem onClick={handleOpenModal}>
+        <Element.NavItem isContentVisible={isContentVisible} onClick={handleOpenModal}>
           <img src={Favorites} alt="Favorites" />
-          <span style={{ left: isContentVisible ? '0' : '-30%', visibility: isContentVisible ? 'visible' : 'hidden' }}>Favorites ({favoritesCount})</span>
+          <Element.Count>{favoritesCount}</Element.Count>
+          <span>Favorites</span>
         </Element.NavItem>
-        {showModal && (
-        <Elements.Modal style={{width:'50%' ,height:'70%', marginLeft: '-50px' , marginTop:'-50px'}}>
-          <Elements.ModalContent>
-            <span className="close" onClick={handleCloseModal}>&times;</span>
-            <h2 className='favotites-head'>Favotites</h2>
-
-            {favoritemovies.map((movie, index) => (
-              
-              <div key={index} >
-                  <div key={index} style={{width:'50%' ,height:'50%', border:'3px solid black'}}>
-                    <img src={movie.posterURL} alt=""/>
-                  </div>
-              </div>
-            ))}
-          </Elements.ModalContent>
-        </Elements.Modal>
-      )} 
+        
+          <Modal open={showModal} close={()=>setShowModal(false)}/>
+        
+        
       </Element.NavMenu>
     </Element.Nav>
   );

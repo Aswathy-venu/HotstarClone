@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import FilmCards from '../MovieList/LatestReleases.js'
+import Footer from '../Footer/Footer.js'
 import * as Elements from '../DetailedPage/DetailedPage.Style'
-import Release from '../../media/New_Release.webp'
 
 const DetailedPage = () => {
   const { id } = useParams();
@@ -51,7 +51,10 @@ const DetailedPage = () => {
               <span className='trailers'>Trailers & More</span>
               <Elements.LineUnderMoreLike />
             </Elements.MoreLike>
-            <Elements.Card><FilmCards/></Elements.Card>
+            <Elements.Card>
+              <FilmCards/>
+            </Elements.Card>
+            <Footer/>
         </Elements.Container>
        <Elements.Fade />
        <Elements.FadeBottom />

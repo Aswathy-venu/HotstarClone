@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Length = styled.div`
-    height:750px;
+    height:1200px;
     overflow-x: hidden;
     overflow-y:hidden;
 `;
@@ -180,10 +180,13 @@ export const Gradient = styled.div`
 
 
 export const MoreLike = styled.div`
-  margin-top:-12px;
+  margin-top:-11px;
     z-index:15;
     bottom:30px;
-
+    margin-top: 30px;
+    z-index: 15;
+    position: relative;
+    top: -30px; 
     span.morelike{
         font-size: 20px;
         margin-left:-590px;
@@ -195,9 +198,16 @@ export const MoreLike = styled.div`
     }
 `;
 
+
+
 export const LineUnderMoreLike = styled.div`
   border-bottom: 2px solid #ccc;
   width: 100%;
-  margin-top: 10px; 
+  margin-top: 1px; 
   margin-left:160px;
+`;
+
+export const Card = styled.div`
+   margin-top:90px;
+   margin-left:60px;
 `;
